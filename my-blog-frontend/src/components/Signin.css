@@ -1,0 +1,409 @@
+/* Container Styles */
+.signin-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+  animation: signinGradientShift 15s ease infinite;
+  color: #e2e8f0;
+}
+
+.signin-card {
+  width: 100%;
+  max-width: 28rem;
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  opacity: 0;
+  animation: signinFadeIn 0.6s ease-out forwards;
+}
+
+/* Header Styles */
+.signin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signin-header h2 {
+  color: #f8fafc;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.signin-header p {
+  color: #94a3b8;
+  margin-top: 0.5rem;
+}
+
+.signin-logo-container {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.signin-logo-image {
+  height: 4rem;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  animation: signinRotateIn 1.2s ease-out;
+}
+
+/* Form Styles */
+.signin-form {
+  margin-bottom: 2rem;
+}
+
+.signin-form .input-group {
+  margin-bottom: 1.5rem;
+}
+
+.signin-form .input-box {
+  margin-bottom: 1.5rem;
+}
+
+.signin-form .input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  animation: signinFadeIn 0.3s ease-out;
+}
+
+.signin-form .input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.signin-form .input-field:focus {
+  transform: scale(1.02);
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  outline: none;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.signin-form .input-field::placeholder {
+  color: #64748b;
+}
+
+/* Button Styles */
+.signin-submit-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(45deg, #8b5cf6, #6366f1, #3b82f6, #8b5cf6);
+  background-size: 300% 300%;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.signin-submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #7c3aed, #4f46e5, #2563eb, #7c3aed);
+  background-size: 200% 200%;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.signin-submit-button:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5),
+              0 0 40px rgba(139, 92, 246, 0.2);
+}
+
+.signin-submit-button:hover::before {
+  opacity: 1;
+  animation: signinGradientShift 3s ease infinite;
+}
+
+.signin-submit-button:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Loading state */
+.signin-submit-button.loading {
+  background: linear-gradient(45deg, #6d28d9, #4338ca);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.signin-submit-button .spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: signinSpin 0.8s linear infinite;
+}
+
+/* Focus state */
+.signin-submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.4),
+              0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .signin-submit-button {
+    height: 3rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Disabled state */
+.signin-submit-button:disabled {
+  background: #4b5563;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Hover effect for non-disabled state */
+.signin-submit-button:not(:disabled):hover {
+  letter-spacing: 1px;
+}
+
+/* Button text animation */
+.signin-submit-button span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.signin-submit-button:hover span {
+  transform: scale(1.05);
+}
+
+/* Add subtle inner shadow */
+.signin-submit-button {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Loading Spinner */
+.signin-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: signinSpin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* Link Styles */
+.signin-hover-link {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.signin-hover-link:hover {
+  color: #a78bfa;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.3);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.signin-hover-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, #8b5cf6, #6366f1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.signin-hover-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Add pulsing animation for extra attention */
+.signin-hover-link:hover {
+  animation: linkPulse 2s infinite;
+}
+
+@keyframes linkPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animations */
+@keyframes signinFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes signinRotateIn {
+  from {
+    transform: rotate(-180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes signinSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes signinGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation Classes */
+.signin-fade-in {
+  animation: signinFadeIn 0.6s ease-out;
+}
+
+.signin-slide-in-right {
+  opacity: 0;
+  animation: signinSlideInRight 0.6s ease-out forwards;
+}
+
+.signin-slide-up {
+  opacity: 0;
+  animation: signinSlideUp 0.6s ease-out forwards;
+}
+
+.signin-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.signin-delay-2 {
+  animation-delay: 0.4s;
+}
+
+@keyframes signinSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes signinSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+  .signin-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .signin-form .input-field {
+    font-size: 1rem;
+    background: rgba(15, 23, 42, 0.8);
+  }
+}
+
+/* Error state styles */
+.signin-form .input-field.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.signin-error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  animation: signinFadeIn 0.3s ease-out;
+}
+
+/* Background Size for Gradient */
+.signin-container {
+  background-size: 200% 200%;
+}
+
+/* Glass Effect for Components */
+.signin-glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Link Styles */
+.signin-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #94a3b8;
+}

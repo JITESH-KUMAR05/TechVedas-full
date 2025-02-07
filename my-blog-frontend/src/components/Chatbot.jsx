@@ -22,7 +22,7 @@ const Chatbot = () => {
             setInput('');
 
             try {
-                const response = await fetch('http://127.0.0.1:5001/get', {
+                const response = await fetch('https://techvedas-full-bot.onrender.com/get', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
